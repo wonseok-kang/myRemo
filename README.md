@@ -1,10 +1,12 @@
 # myRemo
 Image Processing Team Project.
 
+Team Members :
 
+Wonseok Kang 20110138
 
-Team Member :
-Wonseok Kang 20110138\n
-Yong Lee     20120596\n
-Juhyeon Park 20163704\n
+Yong Lee     20120596
+
+Juhyeon Park 20163704
+
 Jin Hong     20164245
