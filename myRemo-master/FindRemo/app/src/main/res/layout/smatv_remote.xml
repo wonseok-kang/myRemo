@@ -6,64 +6,108 @@
     android:layout_height="match_parent"
     android:orientation = "vertical"
     android:background="#ffffff"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    tools:context=".smatvRemoteActivity">
+    tools:context=".centuryRemoteActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="SAMSUNG TV REMO"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="5dp"
-        ></LinearLayout>
-    <Button
-        android:id="@+id/stvpowerOn"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="전원켜기"
-        android:onClick="irSend"
-        />
-    <Button
-        android:id="@+id/stvpowerOff"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="전원끄기"
-        android:onClick="irSend"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="5dp">
 
-    <Button
-        android:id="@+id/stvvolup"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="음량 업"
-        android:onClick="irSend"
-        />
-    <Button
-        android:id="@+id/stvvoldown"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="음량 다운"
-        android:onClick="irSend"
-        />
-    <Button
-        android:id="@+id/stvchup"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="채널 업"
-        android:onClick="irSend"
-        />
-    <Button
-        android:id="@+id/stvchdown"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="채널 다운"
-        android:onClick="irSend"
-        />
+        <ImageButton
+            android:id="@+id/stvpowerOn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="전원켜기"
+            android:background="@drawable/poweroff"
+            android:onClick="irSend" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/stvchup"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/channelupselect"
+                    android:onClick="irSend" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="채널"
+                    android:textSize="25dp"
+                    android:padding="5dp"/>
+
+                <ImageButton
+                    android:id="@+id/stvchdown"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/channeldownselect"
+                    android:onClick="irSend" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_gravity="center"
+                    android:id="@+id/stvvolup"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/volumeupselect"
+                    android:onClick="irSend" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="볼륨"
+                    android:textSize="25dp"
+                    android:padding="5dp"/>
+
+                <ImageButton
+                    android:layout_gravity="center"
+                    android:id="@+id/stvvoldown"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/volumedownselect"
+                    android:onClick="irSend" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

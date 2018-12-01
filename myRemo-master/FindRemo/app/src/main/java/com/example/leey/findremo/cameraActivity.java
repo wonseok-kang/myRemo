@@ -46,8 +46,10 @@ public class cameraActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera);
         checkPermissions();
-        initView();
-        takePhoto();
+        if(checkPermissions()){
+            initView();
+            takePhoto();
+        }
     }
 
     private boolean checkPermissions() {
