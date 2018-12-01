@@ -119,7 +119,7 @@ public class cameraActivity extends AppCompatActivity implements View.OnClickLis
                 takePhoto();
                 break;
             case R.id.btn_whatisthis:
-                Intent intent = new Intent(this,samairRemoteActivity.class);
+                Intent intent = new Intent(this,MainActivity.class);
                 startActivity(intent);
                 break;
         }

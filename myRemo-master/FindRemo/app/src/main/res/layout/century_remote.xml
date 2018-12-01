@@ -7,55 +7,60 @@
     android:orientation = "vertical"
     android:background="#ffffff"
     android:layout_marginLeft="5dp"
+    android:layout_gravity="center"
+    android:gravity="center"
     android:layout_marginRight="5dp"
     tools:context=".centuryRemoteActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="5dp"
-        ></LinearLayout>
-    <Button
+    <ImageButton
         android:id="@+id/powerOn"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:text="전원켜기"
-        android:onClick="irSend"
-        />
-    <Button
-        android:id="@+id/powerOff"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="전원끄기"
-        android:onClick="irSend"
-        />
+        android:background="@drawable/poweroff"
+        android:onClick="irSend" />
 
-    <Button
-        android:id="@+id/tempup"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="온도업"
-        android:onClick="irSend"
-        />
-    <Button
-        android:id="@+id/tempdown"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="온도다운"
-        android:onClick="irSend"
-        />
-    <Button
-        android:id="@+id/swing"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="스윙"
-        android:onClick="irSend"
-        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="70dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/tempup"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/channelupselect"
+                android:text="온도업"
+                android:onClick="irSend" />
+
+            <ImageButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/tempdown"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/channeldownselect"
+                android:text="온도다운"
+                android:onClick="irSend" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_gravity="center"
+            android:id="@+id/swing"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="스윙"
+            android:background="@drawable/windbutton"
+            android:onClick="irSend" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

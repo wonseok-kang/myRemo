@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class centuryRemoteActivity extends AppCompatActivity {
     int S_val[];
     ConsumerIrManager mCIR;
     private static final String TAG = "ConsumerIRTest";
     Object irdaService;
+    ImageButton power;
+    int flag;
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -21,7 +24,8 @@ public class centuryRemoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.century_remote);
-
+        power = findViewById(R.id.powerOn);
+        flag = 0;
         // Example of a call to a native method
         //TextView tv = (TextView) findViewById(R.id.sample_text);
         //tv.setText(stringFromJNI());
@@ -40,14 +44,20 @@ public class centuryRemoteActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.powerOn:
                 int S_powerOn[] ={8500,4300, 550,500, 550,500, 550,1600, 500,1600, 500,550, 550,500, 550,1550, 550,1600, 500,1600, 500,550, 550,500, 550,500, 550,1600, 500,550, 550,500, 550,500, 550,1550, 550,550, 500,550, 550,500, 550,1550, 550,550, 500,1600, 550,500, 550,500, 550,1550, 550,550, 500,550, 550,500, 550,500, 550,550, 500,550, 550,500, 550,500, 550,550, 500,550, 550,500, 550,500, 550,1550, 550,1600, 500,550, 550,500, 550,500, 550,550, 500,550, 550,500, 550,500, 550,550, 500,550, 500,550, 550,500, 550,500, 550,1600, 500,550, 550,500, 550,500, 550,550, 500,550, 550,500, 550,1550, 550,1550, 550,550, 500,550, 550,500, 550,500, 550,550, 500,550, 550,1550, 550,500, 550,500, 550,550, 500,1600, 550,500, 550,1550, 550,500, 550,550, 550};  // NEC 33888A40
-
                 S_val = S_powerOn;
+                if(flag == 0) {
+                    power.setBackgroundResource(R.drawable.poweron);
+                }
+                if(flag == 1){
+                    power.setBackgroundResource(R.drawable.poweroff);
+                }
+                flag = 1 - flag;
                 break;
 
-            case R.id.powerOff:
+           /* case R.id.powerOff:
                 int S_powerOff[] = {8550,4250, 600,450, 600,450, 600,1550, 550,1550, 550,500, 600,450, 600,1500, 600,1550, 550,1550, 550,500, 600,450, 600,450, 600,1550, 550,500, 600,450, 600,450, 600,1500, 600,500, 550,500, 600,450, 600,1500, 600,500, 550,1550, 600,450, 600,450, 600,1500, 600,500, 550,500, 600,450, 550,500, 600,500, 550,500, 600,450, 600,450, 600,500, 550,500, 600,500, 550,450, 550,1550, 600,1550, 550,500, 600,450, 600,450, 600,500, 550,500, 600,450, 600,450, 600,500, 550,500, 600,450, 600,450, 600,450, 600,500, 550,500, 600,450, 600,1500, 600,500, 550,500, 600,450, 600,1500, 600,1500, 600,500, 550,500, 600,450, 600,450, 600,500, 550,500, 600,1500, 600,1500, 600,1500, 600,1500, 600,1550, 550,500, 600,1500, 600,450, 600,500, 600};  // NEC 33888A40
                 S_val = S_powerOff;
-                break;
+                break;*/
 
             case R.id.tempup:
                 int S_strong[] = {8500,4300, 550,500, 550,500, 550,1600, 500,1600, 500,550, 550,500, 550,1550, 550,1600, 500,1600, 500,550, 550,500, 550,500, 550,1600, 500,550, 550,500, 550,500, 550,1550, 550,550, 500,550, 550,500, 550,1550, 550,1550, 550,1600, 500,550, 550,500, 550,1550, 550,550, 500,550, 550,500, 550,500, 550,550, 500,550, 500,550, 550,500, 550,500, 550,550, 500,550, 550,500, 550,1550, 550,1600, 500,550, 500,550, 550,500, 550,500, 550,550, 500,550, 550,500, 550,500, 550,550, 500,550, 550,500, 550,500, 550,1600, 500,550, 550,500, 550,500, 550,550, 500,550, 550,500, 550,1550, 550,1550, 550,550, 500,550, 550,500, 550,500, 550,550, 500,550, 550,1550, 550,500, 550,1550, 550,550, 500,1600, 550,500, 550,1550, 550,500, 550,550, 550};  // NEC 33888E40
