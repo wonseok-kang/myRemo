@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical"
+    android:background="#ffffff"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    tools:context=".lgtvRemoteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        ></LinearLayout>
+    <Button
+        android:id="@+id/lgtvpowerOn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="전원켜기"
+        android:onClick="irSend"
+        />
+    <Button
+        android:id="@+id/lgtvpowerOff"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="전원끄기"
+        android:onClick="irSend"
+        />
+
+    <Button
+        android:id="@+id/lgtvvolup"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="음량 업"
+        android:onClick="irSend"
+        />
+    <Button
+        android:id="@+id/lgtvvoldown"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="음량 다운"
+        android:onClick="irSend"
+        />
+    <Button
+        android:id="@+id/lgtvchup"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="채널 업"
+        android:onClick="irSend"
+        />
+    <Button
+        android:id="@+id/lgtvchdown"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="채널 다운"
+        android:onClick="irSend"
+        />
+
+</LinearLayout>

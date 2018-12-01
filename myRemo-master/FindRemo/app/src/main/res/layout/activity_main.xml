@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical"
+    android:background="#ffffff"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        ></LinearLayout>
+    <Button
+        android:id="@+id/gocentury"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="천장에어컨"
+        android:onClick="remote"
+        />
+    <Button
+        android:id="@+id/golgtv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="엘지티비"
+        android:onClick="remote"
+        />
+
+    <Button
+        android:id="@+id/goprojector"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="프로젝터"
+        android:onClick="remote"
+        />
+    <Button
+        android:id="@+id/gosamair"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="삼성공기청정기"
+        android:onClick="remote"
+        />
+    <Button
+        android:id="@+id/gosamtv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="삼성티비"
+        android:onClick="remote"
+        />
+
+</LinearLayout>
