@@ -1,7 +1,10 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/opencv.hpp>
+#include <opencv2/core/mat.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 #include <memory.h>
+#include <iostream>
 #include <stdio.h>
 using namespace cv;
 
@@ -23,7 +26,7 @@ void binarization(IplImage* img, int threshold);
 int computeThreshold(IplImage* img);
 IplImage* ContourExtraction(IplImage* img);
 void templatematching(IplImage* img, IplImage* img2);
-
+void printLabels(Mat output);
 
 int main()
 {
@@ -57,7 +60,7 @@ int main()
 	array2Img(result);
 	templatematching(trans, templateImg);
 	output = cvarrToMat(result);
-
+	//printLabels(output);
 
 
 	namedWindow("Display Window", WINDOW_AUTOSIZE);
@@ -191,9 +194,9 @@ void templatematching(IplImage* img, IplImage* img2) {
 		for (int x = 0; x < srcWidth; x++) {
 			srcred = Maps[y][x].r;
 			tmpred = img2->imageData[y*img2->widthStep + x * img2->nChannels + 2];
-			printf("srcred : %d\n", (int)x);
-			printf("tmpRed : %d\n", (int)y);
-			printf("correct : %f\n", correct);
+			//printf("srcred : %d\n", (int)x);
+			//printf("tmpRed : %d\n", (int)y);
+			//printf("correct : %f\n", correct);
 			if (srcred == tmpred) correct++;
 
 		}
@@ -203,4 +206,47 @@ void templatematching(IplImage* img, IplImage* img2) {
 		printf("Template Found %f\n", (correct / sum));
 	}
 			
+}
+
+void printLabels(Mat output) {
+	Mat img_color, img_labels, img_binary, img_gray, stats, centroids;
+	Mat tmp = output;
+
+	cvtColor(tmp, img_gray, COLOR_BGR2GRAY);
+	threshold(img_gray, img_binary, 127, 255, THRESH_BINARY);
+	cvtColor(img_gray, img_color, COLOR_GRAY2BGR);
+
+	int numOfLabels = connectedComponentsWithStats(img_binary, img_labels, stats, centroids, 8, CV_32S);
+
+	for (int y = 0; y < img_labels.rows; ++y) {
+		int *label = img_labels.ptr<int>(y);
+		Vec3b* pixel = img_color.ptr<Vec3b>(y);
+
+		for (int x = 0; x < img_labels.cols; ++x) {
+			if (label[x] == 3) {
+				pixel[x][2] = 255;
+				pixel[x][1] = 0;
+				pixel[x][0] = 0;
+			}
+		}
+	}
+
+	for (int j = 1; j < numOfLabels; j++) {
+		int area = stats.at<int>(j, CC_STAT_AREA);
+		int left = stats.at<int>(j, CC_STAT_LEFT);
+		int top = stats.at<int>(j, CC_STAT_TOP);
+		int width = stats.at<int>(j, CC_STAT_WIDTH);
+		int height = stats.at<int>(j, CC_STAT_HEIGHT);
+
+		rectangle(img_color, Point(left, top), Point(left + width, top + height), Scalar(0, 0, 255), 1);
+		//putText(img_color, std::to_string(j), Point(left + 20, top + 20), FONT_HERSHEY_SIMPLEX, 1, Scalar(255, 0, 0), 2);
+
+
+
+
+	}
+	imshow("result", img_color);
+	waitKey(0);
+
+
 }
