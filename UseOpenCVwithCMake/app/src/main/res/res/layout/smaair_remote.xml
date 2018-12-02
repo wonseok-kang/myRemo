@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical"
+    android:background="#ffffff"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    tools:context=".samairRemoteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        ></LinearLayout>
+    <Button
+        android:id="@+id/sapowerOn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="전원켜기"
+        android:onClick="irSend"
+        />
+    <Button
+        android:id="@+id/sapowerOff"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="전원끄기"
+        android:onClick="irSend"
+        />
+
+    <Button
+        android:id="@+id/windup"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="풍량 올림"
+        android:onClick="irSend"
+        />
+    <Button
+        android:id="@+id/winddown"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="풍량 내림"
+        android:onClick="irSend"
+        />
+    <Button
+        android:id="@+id/chomise"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="초/미세먼지"
+        android:onClick="irSend"
+        />
+
+</LinearLayout>
